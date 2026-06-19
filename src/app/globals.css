@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 213 70% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 70% 11%;
+
+    --primary: 213 70% 14%;
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 213 30% 96%;
+    --secondary-foreground: 213 70% 14%;
+
+    --muted: 213 24% 95%;
+    --muted-foreground: 213 14% 40%;
+
+    --accent: 38 44% 51%;
+    --accent-foreground: 213 70% 11%;
+
+    --border: 213 18% 89%;
+    --input: 213 18% 86%;
+    --ring: 38 44% 51%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv01", "cv03";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-gold-200/70 text-ink-900;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-ink-900;
+    text-wrap: balance;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600;
+  }
+
+  .prose-balanced p {
+    text-wrap: pretty;
+  }
+
+  /* Subtle premium grid backdrop */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(11, 31, 58, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 31, 58, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 bg-clip-text text-transparent;
+  }
+}
