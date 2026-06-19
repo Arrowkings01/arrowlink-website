@@ -54,6 +54,19 @@ const config: Config = {
           900: "#0b1f3a",
           950: "#06122a",
         },
+        // Brand blue — sampled from the Arrowlink logo (#1a62b9)
+        brand: {
+          50: "#eef5fc",
+          100: "#d8e8f8",
+          200: "#b6d3f1",
+          300: "#86b5e7",
+          400: "#4f90d8",
+          500: "#1a62b9",
+          600: "#175aa8",
+          700: "#154a89",
+          800: "#163f71",
+          900: "#15375f",
+        },
         // Brand accent — refined bronze-gold
         gold: {
           50: "#faf6ee",

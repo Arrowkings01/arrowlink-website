@@ -1,6 +1,11 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/** Arrowlink wordmark with an arrow-link glyph. Pure SVG, no asset dependency. */
+/**
+ * Arrowlink lockup — the real globe-and-arrow mark (transparent PNG sourced
+ * from the official logo) paired with the wordmark. The mark sits beside the
+ * wordmark for a compact horizontal lockup that fits the header/footer.
+ */
 export function Logo({
   className,
   light = false,
@@ -10,41 +15,27 @@ export function Logo({
 }) {
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
-      <span
-        className={cn(
-          "grid size-9 place-items-center rounded-md",
-          light ? "bg-white/10 ring-1 ring-white/20" : "bg-ink-900",
-        )}
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          className="size-5"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 12h11M11 7l5 5-5 5"
-            stroke="#b8924a"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle cx="19.5" cy="12" r="2" fill="#b8924a" />
-        </svg>
-      </span>
+      <Image
+        src={light ? "/brand/arrowlink-mark-white.png" : "/brand/arrowlink-mark.png"}
+        alt="Arrowlink Global Procurement logo"
+        width={368}
+        height={330}
+        priority
+        className="h-10 w-auto"
+      />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-[1.05rem] font-semibold tracking-tight",
-            light ? "text-white" : "text-ink-900",
+            "text-[1.15rem] font-bold tracking-tight",
+            light ? "text-white" : "text-brand-600",
           )}
         >
-          Arrowlink
+          ARROWLINK
         </span>
         <span
           className={cn(
-            "text-[0.62rem] font-semibold uppercase tracking-[0.22em]",
-            light ? "text-gold-300" : "text-gold-600",
+            "mt-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em]",
+            light ? "text-brand-200" : "text-brand-500/80",
           )}
         >
           Global Procurement
